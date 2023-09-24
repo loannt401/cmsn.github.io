@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quà</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* background-color: #000666; */
+            overflow: hidden;
+            font-family: sans-serif;
+            background-image: url('nenqua.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .giftcontainer {
+            position: relative;
+        }
+
+        .giftcontainer::before{
+            content: '';
+            position: absolute;
+            width: 25vw;
+            height: 2vw;
+            background-color: rgba(150, 143, 3, 0.4);
+            border-radius: 50%;
+            top:15vw;
+            left: -15vw;
+        }
+
+        .gift {
+            position: absolute;
+            width: 20vw;
+            height: 15vw;
+            left: -13vw;
+            background-color: yellow
+        }
+
+        .gift::before{
+            content: '';
+            position: absolute;
+            width: 4vw;
+            height: 15vw;
+            background-color: red;
+            left: 8vw;
+
+        }
+
+        .gift::after{
+            content: '';
+            position: absolute;
+            box-shadow: 0 10px rgba(0,0,0,0.3);
+            width: 20vw;
+            height: 2vw;
+            /* bottom: 0.5vw; */
+        }
+
+        #click {
+            display: none;
+
+        }
+        .click {
+            position: absolute;
+            background-color: yellow;
+            width: 23vw;
+            height: 7vw;
+            top: -5vw;
+            left: -1.5vw;
+            transform-origin: bottom left;
+            transform: 3s;
+            cursor: pointer;
+        }
+
+        .click::before {
+            position: absolute;
+            content: '';
+            width: 4vw;
+            height: 7vw;
+            background-color: red;
+            left: 9.5vw;
+        }
+
+        .click::after {
+            content: '';
+            position: absolute;
+            width: 2vw;
+            height: 0;
+            border-bottom: 2vw solid red;
+            border-top: 2vw solid red;
+            border-left: 0px transparent;
+            border-right: 2vw solid transparent;
+            transform: rotate(-90deg);
+            left: 9.5vw;
+            top: -3.5vw;
+        }
+
+        #click:checked+.click {
+            transform: rotate(-110deg) scale(0.85);
+            display: block;
+        }
+
+        #click:checked~.wishes {
+            transform: translateY(-12vw);
+
+        }
+
+        .wishes {
+            position: absolute;
+            transition: .5s;
+            color: #333;
+            font-size: 2vw;
+            text-transform: uppercase;
+            text-align: center;
+            z-index: -1;
+            left: 1vw;
+            color: #fff;
+            text-shadow: 0 0 10px #020202;
+        }
+    </style>
+</head>
+<body>
+    <div class="giftcontainer">
+        <div class="gift">
+            <input type="checkbox" id="click">
+            <label for="click" class="click"></label>
+            <div class="wishes" id="vb">happy birthday</div>
+        </div>
+    </div>
+    <script>
+        const checkbox = document.getElementById('click');
+        const clickDiv = document.querySelector('.wishes');
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                clickDiv.style.display = 'block';
+                vonglap = setInterval(changeText, 2000);
+            } else {
+                clickDiv.style.display = 'none';
+            }
+        });
+        const textContainer = document.getElementById('vb');
+        const texts = ['Đây là quà sinh nhật ta cất công chuẩn bị đó', 'Sinh nhật vui vẻ !', 'Tuổi mới ngày càng xinh', 'Có thêm người yêu', 'Giàu thêm nha'];
+        let currentIndex = 0;
+
+        function changeText() {
+            textContainer.textContent = texts[currentIndex];
+            currentIndex = (currentIndex + 1) % texts.length;
+            if (currentIndex === 0) {
+                clearInterval(vonglap); // Dừng vòng lặp
+                setTimeout(function() {
+                    window.location.href = "hinhanh.html"; // Đặt URL của trang web mà bạn muốn chuyển đổi đến ở đây
+                }, 5000);
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('nen.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .ht {
+            width: 80%;
+            height: 100vh;
+            margin: auto;
+            margin-top: 3vw;
+            text-align: center;
+        }
+
+        .ht img {
+            height: 80%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="ht">
+        <img src="" id="img" alt="">
+    </div>
+    <script>
+        const imageContainer = document.querySelector('.ht');
+        const imageElement = document.getElementById('img');
+
+        // Danh sách URL hình ảnh
+        const imageUrls = [
+            'hinh1.jpg',
+            'hinh2.jpg',
+            'hinh3.jpg',
+            'hinh4.jpg',
+            'hinh5.jpg',
+            'hinh6.jpg',
+            'hinh7.jpg',
+            'hinh8.jpg',
+            'hinh9.jpg',
+            'hinh10.jpg',
+            'hinh11.jpg',
+            'hinh12.jpg',
+            'hinh13.jpg',
+            'hinh14.jpg',
+            'hinh15.jpg',
+            'hinh16.jpg',
+            'hinh17.jpg',
+            'hinh18.jpg',
+            'hinh19.jpg',
+            'hinh20.jpg',
+            'hinh21.jpg',
+            'hinh22.jpg',
+            'hinh23.jpg',
+            'hinh24.jpg',
+            'hinh25.jpg',
+            'hinh26.jpg'
+            // Thêm các URL hình ảnh khác tại đây
+        ];
+
+        let currentIndex = 0;
+
+        function changeImage() {
+            if (currentIndex >= imageUrls.length) {
+                currentIndex = 0; // Quay lại hình đầu tiên nếu đã duyệt hết danh sách
+            }
+            const imageUrl = imageUrls[currentIndex];
+            imageElement.src = imageUrl;
+            currentIndex++;
+        }
+
+        // Gọi hàm changeImage lần đầu
+        changeImage();
+
+        // Sử dụng setInterval để thay đổi hình ảnh sau mỗi khoảng thời gian (ví dụ: 3 giây)
+        setInterval(changeImage, 3000);
+    </script>
+</body>
+</html>

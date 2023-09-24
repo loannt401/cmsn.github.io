@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuẩn bị </title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .so {
+            width: 200px;
+            height: 200px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: bolder;
+            font-size: 200px;
+            margin: auto;
+            margin-top: 15vw;
+            color: white;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="so" id="countdown">5</div>
+    <script>
+        const countdownElement = document.getElementById('countdown');
+
+        function startCountdown(seconds) {
+            let count = seconds;
+            countdownElement.textContent = count;
+
+            const countdownInterval = setInterval(function () {
+                count--;
+                countdownElement.textContent = count;
+
+                if (count <= 0) {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000); // Cập nhật mỗi giây (1000 milliseconds)
+        }
+
+        startCountdown(5); // Bắt đầu đếm ngược từ số 10 (hoặc số bất kỳ bạn muốn)
+
+        setTimeout(function() {
+            window.location.href = "cmsv.html"; // Đặt URL của trang web mà bạn muốn chuyển đổi đến ở đây
+        }, 5000);
+
+    </script>
+</body>
+</html>

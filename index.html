@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('nen.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .login {
+            width: 50%;
+            margin: auto;
+            margin-top: 10vw;
+            color: white;
+            text-align: center;
+        }
+
+        #password {
+            border: 0.5vw solid blue;
+            width: 20vw;
+            height: 2vw;
+            border-radius: 10%;
+            font-size: 2vw;
+        }
+
+        .dn {
+            width: 12vw;
+            height: 3vw;
+            background-color: red;
+            border-radius: 20%;
+            color: black;
+            font-weight: bold;
+            font-size: 1.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>Mời bạn nhập mật khẩu </h1>
+        <h2>Bật mí: ngày sinh nhật của bạn!</h2>
+        <br><br><br>
+        <form id="login-form">
+            <input type="password" id="password" name="password" required>
+            <br><br><br>
+            <button type="submit" class="dn">Click vào đây</button>
+        </form>
+        
+    </div>
+    <script>
+        const loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn gửi form mặc định
+
+            const password = document.getElementById('password').value;
+
+            // Kiểm tra thông tin đăng nhập
+            if (password === '25091998') {
+                alert('Đăng nhập thành công!');
+                window.location.href = 'so.html'; // Chuyển hướng đến trang khác sau đăng nhập thành công
+            } else {
+                alert('Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.');
+            }
+        });
+    </script>
+</body>
+</html>
